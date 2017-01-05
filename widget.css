@@ -1,0 +1,53 @@
+/* Reset styles*/
+
+#reward_widget div, #reward_widget span,
+#reward_widget h1, #reward_widget h2, #reward_widget h3, #reward_widget h4, #reward_widget h5,
+#reward_widget h6, #reward_widget p, #reward_widget a, #reward_widget abbr, #reward_widget acronym,
+#reward_widget address, #reward_widget big, #reward_widget cite, #reward_widget code,
+#reward_widget del, #reward_widget dfn, #reward_widget em, #reward_widget img, #reward_widget ins,
+#reward_widget kbd, #reward_widget q, #reward_widget s, #reward_widget samp,
+#reward_widget small, #reward_widget strike, #reward_widget strong, #reward_widget sub,
+#reward_widget sup, #reward_widget tt, #reward_widget var,
+#reward_widget u, #reward_widget i, #reward_widget center,
+#reward_widget dl, #reward_widget dt, #reward_widget dd, #reward_widget ol, #reward_widget ul,
+#reward_widget li, #reward_widget fieldset, #reward_widget form, #reward_widget label, #reward_widget legend,
+#reward_widget table, #reward_widget caption, #reward_widget tbody, #reward_widget tfoot,
+#reward_widget thead, #reward_widget tr, #reward_widget th, #reward_widget td,
+#reward_widget article, #reward_widget aside, #reward_widget canvas, #reward_widget details, #reward_widget embed,
+#reward_widget figure, #reward_widget figcaption, #reward_widget footer, #reward_widget header,
+#reward_widget menu, #reward_widget nav, #reward_widget output, #reward_widget ruby, #reward_widget section, #reward_widget summary,
+#reward_widget time, #reward_widget mark, #reward_widget audio, #reward_widget video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+#reward_widget article, #reward_widget aside, #reward_widget details, #reward_widget figcaption, #reward_widget figure,
+#reward_widget footer, #reward_widget header, #reward_widget menu, #reward_widget nav, #reward_widget section #reward_widget  {
+	display: block;
+}
+#reward_widget ol,  #reward_widget ul {
+	list-style: none;
+}
+
+#reward_widget table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+#reward_widget h1,
+#reward_widget h2,
+#reward_widget h3,
+#reward_widget h4,
+#reward_widget h5,
+#reward_widget h6 {
+    line-height: normal;
+}
+/* end reset styles*/
+
+.reward_widget_head {
+	
+}
