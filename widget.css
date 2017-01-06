@@ -1,7 +1,15 @@
 /* Reset styles*/
 
+/* Remove padding and margin */ 
+*  
+    { 
+    margin: 0; 
+    padding: 0; 
+    border: 0; 
+}
+
 #reward_widget div, #reward_widget span,
-#reward_widget h1, #reward_widget h2, #reward_widget h3, #reward_widget h4, #reward_widget h5,
+/*#reward_widget h1, #reward_widget h2, #reward_widget h3, #reward_widget h4, #reward_widget h5,*/
 #reward_widget h6, #reward_widget p, #reward_widget a, #reward_widget abbr, #reward_widget acronym,
 #reward_widget address, #reward_widget big, #reward_widget cite, #reward_widget code,
 #reward_widget del, #reward_widget dfn, #reward_widget em, #reward_widget img, #reward_widget ins,
@@ -17,9 +25,6 @@
 #reward_widget figure, #reward_widget figcaption, #reward_widget footer, #reward_widget header,
 #reward_widget menu, #reward_widget nav, #reward_widget output, #reward_widget ruby, #reward_widget section, #reward_widget summary,
 #reward_widget time, #reward_widget mark, #reward_widget audio, #reward_widget video {
-	margin: 0;
-	padding: 0;
-	border: 0;
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
@@ -44,10 +49,66 @@
 #reward_widget h4,
 #reward_widget h5,
 #reward_widget h6 {
-    line-height: normal;
+    /*line-height: normal;*/
 }
 /* end reset styles*/
+.reward_widget {
+	position: fixed;
+	top: 200px;
 
-.reward_widget_head {
-	
+
 }
+ div.reward_widget_head {
+	width: 300px;
+	height: 120px;
+	border-top: 4px solid #5B64B9;
+	border-right: 4px solid #5B64B9;
+	border-bottom: 4px solid #5B64B9;
+	text-align: center;
+	border-radius: 0px 8px 8px 0px;
+
+}
+div.reward_widget_head h2 {
+	/*margin-top: 20px;*/
+	padding-top: 20px;
+	color:#5B64B9; 
+}
+div.reward_widget_head p {
+	color: #5B64B9;
+}
+div.reward_widget_body {
+	width: 280px;
+	height: 200px;
+	border-right: 4px solid #5B64B9;
+	border-bottom: 4px solid #5B64B9;
+	border-radius: 0px 8px 8px 0px;
+
+}
+div.reward_cirlce {
+	background: #A0E9CA;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	float: left;
+}
+div.reward_cirlce p{
+	padding-top: 4px;
+	color: white;
+}
+
+div.reward_cirlce_row {
+	/*display: inline;*/
+	/*float: right;*/
+	padding-left: 50px;
+	padding-top: 10px;
+
+}
+.reward_line {
+	width: 10px;
+	height: 2px;
+	background: #A0E9CA;
+	float: left;
+	margin-top: 12px;
+
+}
+
