@@ -55,19 +55,51 @@
 .reward_widget {
 	position: fixed;
 	top: 200px;
-
+}
+div.reward_widget_prehead {
+	width: 280px;
+	height: 20px;
+	border-radius: 0px 0px 0px 8px;
+	border-bottom: 4px solid #5B64B9;
+}
+ #reward_widget div.reward_widget_head {
+	width: 290px;
+	height: 120px;
+	/*border-top: 4px solid #5B64B9;*/
+	/*border-right: 1px solid #5B64B9;*/
+	/*border-bottom: 4px solid #5B64B9;*/
+	text-align: center;
+	/*border-radius: 0px 8px 8px 0px;*/
+	display: inline-block;
+	vertical-align: text-bottom;
 
 }
- div.reward_widget_head {
-	width: 300px;
+#reward_widget div.reward_widget_head-midle {
 	height: 120px;
+	width: 10px;
+	border-top: 4px solid #5B64B9;
+	border-bottom: 4px solid rgba(0, 0, 0, .0);
+	vertical-align: text-bottom;
+	display: inline-block;
+	margin-left: -14px;
+}
+#reward_widget div.reward_widget_head-right {
+	height: 120px;
+	width: 20px;
+	display: inline-block;
 	border-top: 4px solid #5B64B9;
 	border-right: 4px solid #5B64B9;
 	border-bottom: 4px solid #5B64B9;
-	text-align: center;
 	border-radius: 0px 8px 8px 0px;
+	vertical-align: text-bottom;
+	margin-left: -4px;
 
 }
+#reward_widget div.reward_widget_head_block {
+	display: inline-block;
+	margin-top: -4px;
+}
+
 div.reward_widget_head h2 {
 	/*margin-top: 20px;*/
 	padding-top: 20px;
@@ -76,12 +108,35 @@ div.reward_widget_head h2 {
 div.reward_widget_head p {
 	color: #5B64B9;
 }
+#reward_widget div.reward_widget_body_block {
+	vertical-align: text-bottom;
+	margin-top: -5px;
+}
 div.reward_widget_body {
-	width: 280px;
+	width: 270px;
 	height: 200px;
-	border-right: 4px solid #5B64B9;
+	/*border-right: 4px solid #5B64B9;*/
 	border-bottom: 4px solid #5B64B9;
 	border-radius: 0px 8px 8px 0px;
+	display: inline-block;
+
+
+}
+div.reward_widget_body_midle {
+	height: 190px;
+	width: 10px;
+	display: inline-block;
+	border-bottom: 4px solid #5B64B9;
+	border-radius: 8px ;
+}
+div.reward_widget_body_right {
+	height: 190px;
+	width: 9px;
+	border-left: 4px solid #5B64B9;
+	border-top: 4px solid #5B64B9;
+	border-radius: 8px 0px 0px 0px;
+	display: inline-block;
+	margin-left: -5px;
 
 }
 div.reward_cirlce {
@@ -99,7 +154,7 @@ div.reward_cirlce p{
 div.reward_cirlce_row {
 	/*display: inline;*/
 	/*float: right;*/
-	padding-left: 50px;
+	/*padding-left: 50px;*/
 	padding-top: 10px;
 
 }
