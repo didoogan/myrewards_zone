@@ -55,7 +55,7 @@
 .reward_widget {
 	position: fixed;
 	top: 200px;
-	background: #E9FBFB;
+	/*background: #E9FBFB;*/
 }
 div.reward_widget_prehead {
 	width: 280px;
@@ -73,10 +73,11 @@ div.reward_widget_prehead {
 	/*border-radius: 0px 8px 8px 0px;*/
 	display: inline-block;
 	vertical-align: text-bottom;
+	background: #E9FBFB;
 
 }
 #reward_widget div.reward_widget_head-midle {
-	height: 120px;
+	height: 116px;
 	width: 10px;
 	border-top: 4px solid #5B64B9;
 	border-bottom: 4px solid rgba(0, 0, 0, .0);
@@ -85,7 +86,7 @@ div.reward_widget_prehead {
 	margin-left: -15px;
 }
 #reward_widget div.reward_widget_head-right {
-	height: 120px;
+	height: 116px;
 	width: 20px;
 	display: inline-block;
 	border-top: 4px solid #5B64B9;
@@ -94,7 +95,7 @@ div.reward_widget_prehead {
 	border-radius: 0px 8px 8px 0px;
 	vertical-align: text-bottom;
 	margin-left: -5px;
-
+	background: #E9FBFB;
 }
 #reward_widget div.reward_widget_head_block {
 	display: inline-block;
@@ -120,14 +121,14 @@ div.reward_cirlce_row + div {
 	margin-top: -4px;
 }
 div.reward_widget_body {
-	width: 272px;
-	height: 190px;
-	/*border-right: 4px solid #5B64B9;*/
-	/*border-bottom: 4px solid #5B64B9;*/
-	border-radius: 0px 8px 8px 0px;
-	display: inline-block;
-
-
+	width: 284px;
+    height: 200px;
+    /* border-right: 4px solid #5B64B9; */
+    /* border-bottom: 4px solid #5B64B9; */
+    border-radius: 0px 8px 8px 0px;
+    display: inline-block;
+    background: #E9FBFB;
+    margin-right: -14px;
 }
 div.reward_widget_body > div {
 	height: 50px;
