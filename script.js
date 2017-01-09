@@ -21,3 +21,4 @@ var Widget = (function () {
 }());
 var widget = new Widget("#reward_widget", "#pre_widget");
 widget.showWidget();
+widget.preWidget.addEventListener("click", widget.togleWidget);

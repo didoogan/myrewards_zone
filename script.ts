@@ -21,8 +21,13 @@ class Widget {
         this.displayPreWidget = !this.displayPreWidget;
         this.showWidget()
     }
+    addListeners(): void {
+        this.preWidget.addEventListener("click", this.togleWidget);
+    }
 
  }
 
 let widget = new Widget("#reward_widget", "#pre_widget");
 widget.showWidget();
+widget.addListeners();
+
