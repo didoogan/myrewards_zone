@@ -17,8 +17,12 @@ var Widget = (function () {
         this.displayPreWidget = !this.displayPreWidget;
         this.showWidget();
     };
+    Widget.prototype.addListeners = function () {
+        this.preWidget.addEventListener("click", this.togleWidget.bind(this));
+    };
     return Widget;
 }());
 var widget = new Widget("#reward_widget", "#pre_widget");
 widget.showWidget();
-widget.preWidget.addEventListener("click", widget.togleWidget);
+// widget.preWidget.addEventListener('click', widget.togleWidget.bind(widget));
+widget.addListeners();

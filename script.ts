@@ -22,12 +22,15 @@ class Widget {
         this.showWidget()
     }
     addListeners(): void {
-        this.preWidget.addEventListener("click", this.togleWidget);
+        let cross = document.querySelector("#reward_widget span.reward_cross");
+        this.preWidget.addEventListener("click", this.togleWidget.bind(this));
     }
 
  }
 
 let widget = new Widget("#reward_widget", "#pre_widget");
 widget.showWidget();
+// widget.preWidget.addEventListener('click', widget.togleWidget.bind(widget));
 widget.addListeners();
+
 
