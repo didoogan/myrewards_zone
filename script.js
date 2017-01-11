@@ -9,6 +9,8 @@ var Widget = (function () {
         this.preWidget = document.querySelector(preWidgetSelector);
         this.bodyContent = document.querySelector('#reward_widget .myreward_body_part');
         this.emailForm = document.querySelector("#reward_widget .reward_form_email");
+        this.formPassword = document.querySelector("#reward_widget .reward_form_password");
+        this.thankDiv = document.querySelector("#reward_widget .thank-you");
     }
     Widget.prototype.showWidget = function () {
         // this.widget.style.display = (this.displaWidget)? 'block' : 'none';
@@ -26,6 +28,8 @@ var Widget = (function () {
         cross.addEventListener('click', this.togleWidget.bind(this));
         // Add listener to pre_widget click
         this.preWidget.addEventListener("click", this.togleWidget.bind(this));
+        document.querySelector('input.send-email-button').addEventListener("click", this.showPasswordInput.bind(this));
+        document.querySelector('input.send-password-button').addEventListener("click", this.confirmPassworForm.bind(this));
     };
     Widget.prototype.animateLeft = function (obj, from, to) {
         var _this = this;
@@ -40,12 +44,21 @@ var Widget = (function () {
                 _this.animateLeft(obj, (from < to) ? from + 5 : from - 5, to);
             }, 2);
         }
+        console.log("animate left");
     };
     Widget.prototype.hideShowEmailForm = function () {
         this.displayBodyContent = !this.displayBodyContent;
         this.displayEmailInput = !this.displayEmailInput;
         this.emailForm.style.display = (this.displayEmailInput) ? "block" : "none";
         this.bodyContent.style.display = (this.displayBodyContent) ? "block" : "none";
+    };
+    Widget.prototype.showPasswordInput = function () {
+        this.emailForm.style.display = "none";
+        this.formPassword.style.display = "block";
+    };
+    Widget.prototype.confirmPassworForm = function () {
+        this.formPassword.style.display = "none";
+        this.thankDiv.style.display = "block";
     };
     return Widget;
 }());

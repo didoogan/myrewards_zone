@@ -8,12 +8,16 @@ class Widget {
     preWidget: any;
     bodyContent: any;
     emailForm: any;
+    formPassword: any;
+    thankDiv: any;
 
     constructor(widgetSelector: string, preWidgetSelector: string) {
         this.widget = document.querySelector(widgetSelector);
         this.preWidget = document.querySelector(preWidgetSelector);
         this.bodyContent = document.querySelector('#reward_widget .myreward_body_part');
         this.emailForm = document.querySelector("#reward_widget .reward_form_email");
+        this.formPassword = document.querySelector("#reward_widget .reward_form_password");
+        this.thankDiv = document.querySelector("#reward_widget .thank-you");
     }
 
     showWidget(): void {
@@ -34,6 +38,8 @@ class Widget {
         
         // Add listener to pre_widget click
         this.preWidget.addEventListener("click", this.togleWidget.bind(this));
+        document.querySelector('input.send-email-button').addEventListener("click", this.showPasswordInput.bind(this));
+        document.querySelector('input.send-password-button').addEventListener("click", this.confirmPassworForm.bind(this));
     }
     animateLeft (obj: any, from: number, to: number): void {
        if(from == to){         
@@ -48,12 +54,21 @@ class Widget {
 
         }, 2) 
        }
+       console.log("animate left");
     }
     hideShowEmailForm ():void {
         this.displayBodyContent = !this.displayBodyContent;
         this.displayEmailInput = !this.displayEmailInput;
         this.emailForm.style.display = (this.displayEmailInput)? "block": "none";
         this.bodyContent.style.display = (this.displayBodyContent)? "block": "none";
+    }
+    showPasswordInput (): void {
+        this.emailForm.style.display = "none";
+        this.formPassword.style.display = "block";
+    }
+    confirmPassworForm (): void {
+        this.formPassword.style.display = "none";
+        this.thankDiv.style.display = "block";
     }
 
  }
