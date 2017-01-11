@@ -131,7 +131,13 @@ div.reward_widget_body {
     background: #E9FBFB;
     margin-right: -14px;
 }
-div.reward_widget_body > div {
+#reward_widget .reward_form_email {
+	font-size: 15px;
+    color: #5B64B9;
+    padding-left: 22px;
+    padding-top: 20px;
+}
+div.reward_widget_body > div.middle-part {
 	height: 50px;
 	background: #5B64B9; 
 }
@@ -141,7 +147,7 @@ div.reward_widget_body_midle > div {
     background: #5B64B9;
     margin-left: -5px;
 }
-#reward_widget div.reward_widget_body p:nth-child(1) {
+#reward_widget div.reward_widget_body p.you-have {
 	color: #F6F123;
 	font-weight: 900;
 	margin-left: 30px;
@@ -157,7 +163,7 @@ div.reward_widget_body_midle > div {
 	float: left;
 	padding-top: 4px;
 }
-#reward_widget div.reward_widget_body button {
+#reward_widget  button {
 	display: inline-block;
 	background: #F6F123;
 	padding: 8px 7px;
@@ -168,12 +174,22 @@ div.reward_widget_body_midle > div {
 	color: #5B64B9;
 	font-size: 11px;
 	vertical-align: -13px;
+	border: 2 px solid #5B64B9;
+}
+input[type=text], select {
+    width: 66%;
+    padding: 6px 20px;
+    margin: 8px 25px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 #reward_widget div.reward_widget_body button:hover {
 	background: #f6ba23;
 	cursor:pointer;
 }
-#reward_widget .myreward_widget_body_main_text {
+#reward_widget p.myreward_widget_body_main_text {
 	font-size: 14px;
     margin-left: 27px;
     margin-top: 10px;
@@ -186,6 +202,9 @@ div.reward_widget_body_midle > div {
 	background: #79E6E6;
 	margin: 10px;
 }
+#reward_widget div.image_ph:nth-child(1) {
+	margin-left: 18px;
+}
 #reward_widget div.reward_widget_body button.learn-more {
 	width: 55px;
 	height: 55px;
@@ -197,6 +216,20 @@ div.reward_widget_body_midle > div {
 }
 #reward_widget div.reward_widget_body button.learn-more:hover {
 	background: #799AE6; 
+}
+#reward_widget div.reward_form_email {
+	display: none;
+}
+#reward_widget .send-email-button {
+	vertical-align: 0px;
+    /* margin-left: 0px; */
+    margin: 5px 29px;
+    width: 66%;
+    font-size: 14px;
+    margin-left: 22px;
+}
+#reward_widget .enter-email {
+	margin-left: 32px;
 }
 div.reward_widget_body_midle {
 	height: 200px;

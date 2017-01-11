@@ -1,23 +1,25 @@
 class Widget {
     displaWidget: boolean = false;
     displayPreWidget: boolean = true;
+    displayEmailInput: boolean = false;
+    displayEmailForm: boolean = false;
+    displayBodyContent: boolean = true;
     widget: any;
     preWidget: any;
+    bodyContent: any;
+    emailForm: any;
 
     constructor(widgetSelector: string, preWidgetSelector: string) {
         this.widget = document.querySelector(widgetSelector);
         this.preWidget = document.querySelector(preWidgetSelector);
+        this.bodyContent = document.querySelector('#reward_widget .myreward_body_part');
+        this.emailForm = document.querySelector("#reward_widget .reward_form_email");
     }
 
     showWidget(): void {
-        this.widget.style.display = (this.displaWidget)? 'block' : 'none';
+        // this.widget.style.display = (this.displaWidget)? 'block' : 'none';
         this.preWidget.style.display = (this.displayPreWidget)? 'block' : 'none';
-
-        let args = [this.widget, '-315px', '315px'];
-        // if (this.displaWidget) {
-        //     this.animateLeft(this.widget, -315, 0 );
-        // }
-        (this.displaWidget)? this.animateLeft(this.widget, -315, 0, 'left' ) : this.animateLeft(this.widget, 0, -315, 'left' );
+        (this.displaWidget)? this.animateLeft(this.widget, -315, 0) : this.animateLeft(this.widget, 0, -315);
 
     }
     togleWidget(): void {
@@ -33,19 +35,25 @@ class Widget {
         // Add listener to pre_widget click
         this.preWidget.addEventListener("click", this.togleWidget.bind(this));
     }
-    animateLeft (obj: any, from: number, to: number, direction: string): void{
-       if(from >= to){         
+    animateLeft (obj: any, from: number, to: number): void {
+       if(from == to){         
            // obj.style.visibility = 'hidden';
        return;  
        }
        else {
         var box = obj;
-        box.style.marginLeft = from + "px";
+        box.style.marginLeft = `${from}px`;
         setTimeout(() => {
-            this.animateLeft(obj, from+5, to, direction);
+            this.animateLeft(obj, (from < to)? from+5 : from-5, to);
 
         }, 2) 
        }
+    }
+    hideShowEmailForm ():void {
+        this.displayBodyContent = !this.displayBodyContent;
+        this.displayEmailInput = !this.displayEmailInput;
+        this.emailForm.style.display = (this.displayEmailInput)? "block": "none";
+        this.bodyContent.style.display = (this.displayBodyContent)? "block": "none";
     }
 
  }

@@ -44,22 +44,33 @@
         </div>  
         <div class="reward_widget_body_block">  
             <div class="reward_widget_body">
-                <div>
+                <div class="middle-part">
                     <div>
-                    <p>You have</p>
+                    <p class="you-have">You have</p>
                     <!--<p><b>You have</b></p>-->
                     <p>10 points!</p>
                     </div>
-                    <button>save my points! &#10097;</button>
+                    <button onclick="widget.hideShowEmailForm()">save my points! &#10097;</button>
                 </div>
-                <p class="myreward_widget_body_main_text">
-                    Keep adding point and redeem at 2,500 for free stuff and exclusive discounts
-                </p>
-                <div class="image_ph"></div>
-                <div class="image_ph"></div>
-                <button class="learn-more"><span>learn more</span> 
-                    <span class="myreward_arrow">&#8594;</span>
-                </button>
+                <div class="reward_form_email">
+                    <p class="enter-email">Please, enter your email</p>
+                    <form>
+                        <input type="text" name="input">
+                        <!--<input type="button" value="send">-->
+                        <br />
+                        <button class="send-email-button">send</button>
+                    </form>
+                </div>
+                <div class="myreward_body_part">
+                    <p class="myreward_widget_body_main_text">
+                        Keep adding point and redeem at 2,500 for free stuff and exclusive discounts
+                    </p>
+                    <div class="image_ph"></div>
+                    <div class="image_ph"></div>
+                    <button class="learn-more"><span>learn more</span> 
+                        <span class="myreward_arrow">&#8594;</span>
+                    </button>
+                </div>
             </div> 
             <div class="reward_widget_body_midle"><div></div></div>  
             <div class="reward_widget_body_right"><p></p></div>  
