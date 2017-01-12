@@ -4,20 +4,26 @@ class Widget {
     displayEmailInput: boolean = false;
     displayEmailForm: boolean = false;
     displayBodyContent: boolean = true;
-    widget: any;
-    preWidget: any;
-    bodyContent: any;
-    emailForm: any;
-    formPassword: any;
-    thankDiv: any;
+    widget: HTMLInputElement;
+    preWidget: HTMLInputElement;
+    bodyContent: HTMLInputElement;
+    emailForm: HTMLInputElement;
+    formPassword: HTMLInputElement;
+    thankDiv: HTMLInputElement;
+    // buttons
+    savePointBtn: HTMLInputElement;
+    sendPasswordBtn: HTMLInputElement;
 
     constructor(widgetSelector: string, preWidgetSelector: string) {
-        this.widget = document.querySelector(widgetSelector);
-        this.preWidget = document.querySelector(preWidgetSelector);
-        this.bodyContent = document.querySelector('#reward_widget .myreward_body_part');
-        this.emailForm = document.querySelector("#reward_widget .reward_form_email");
-        this.formPassword = document.querySelector("#reward_widget .reward_form_password");
-        this.thankDiv = document.querySelector("#reward_widget .thank-you");
+        this.widget = <HTMLInputElement>document.querySelector(widgetSelector);
+        this.preWidget = <HTMLInputElement>document.querySelector(preWidgetSelector);
+        this.bodyContent = <HTMLInputElement>document.querySelector('#reward_widget .myreward_body_part');
+        this.emailForm = <HTMLInputElement>document.querySelector("#reward_widget .reward_form_email");
+        this.formPassword = <HTMLInputElement>document.querySelector("#reward_widget .reward_form_password");
+        this.thankDiv = <HTMLInputElement>document.querySelector("#reward_widget .thank-you");
+        // buttons
+        this.savePointBtn = <HTMLInputElement>document.querySelector(".middle-part button");
+        this.sendPasswordBtn= <HTMLInputElement>document.querySelector('input.send-password-button');
     }
 
     showWidget(): void {
@@ -33,19 +39,15 @@ class Widget {
     }
     addListeners(): void {
         let cross = document.querySelector("#reward_widget span.reward_cross");
-        // Add listener to cross click
         cross.addEventListener('click', this.togleWidget.bind(this));
-        
-        // Add listener to pre_widget click
         this.preWidget.addEventListener("click", this.togleWidget.bind(this));
         document.querySelector('input.send-email-button').addEventListener("click", this.showPasswordInput.bind(this));
-        document.querySelector('input.send-password-button').addEventListener("click", this.confirmPassworForm.bind(this));
+        this.sendPasswordBtn.addEventListener("click", this.confirmPassworForm.bind(this));
     }
     animateLeft (obj: any, from: number, to: number): void {
        if(from == to){         
-           // obj.style.visibility = 'hidden';
-       return;  
-       }
+           return;  
+           }
        else {
         var box = obj;
         box.style.marginLeft = `${from}px`;
@@ -54,13 +56,16 @@ class Widget {
 
         }, 2) 
        }
-       console.log("animate left");
     }
     hideShowEmailForm ():void {
         this.displayBodyContent = !this.displayBodyContent;
         this.displayEmailInput = !this.displayEmailInput;
         this.emailForm.style.display = (this.displayEmailInput)? "block": "none";
         this.bodyContent.style.display = (this.displayBodyContent)? "block": "none";
+        // disable saveMyPoint button 
+        this.savePointBtn.disabled = true;
+        this.savePointBtn.className += 'disable-btn';
+
     }
     showPasswordInput (): void {
         this.emailForm.style.display = "none";

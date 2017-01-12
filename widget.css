@@ -161,6 +161,13 @@ div.reward_widget_body_midle > div {
     background: #5B64B9;
     margin-left: -5px;
 }
+.disable-btn {
+	background: #f6ba23;
+	opacity: .5;
+}
+.disable-btn:hover {
+	cursor: default !important;
+}
 #reward_widget div.reward_widget_body p.you-have {
 	color: #F6F123;
 	font-weight: 900;
@@ -260,6 +267,7 @@ input[type=text], select {
     color: #5B64B9;
     width: 66%;
     font-size: 11px;
+	margin-top: 10px;
 }
 #reward_widget input.form-password-input {
 	padding: 3px 20px;

@@ -11,6 +11,9 @@ var Widget = (function () {
         this.emailForm = document.querySelector("#reward_widget .reward_form_email");
         this.formPassword = document.querySelector("#reward_widget .reward_form_password");
         this.thankDiv = document.querySelector("#reward_widget .thank-you");
+        // buttons
+        this.savePointBtn = document.querySelector(".middle-part button");
+        this.sendPasswordBtn = document.querySelector('input.send-password-button');
     }
     Widget.prototype.showWidget = function () {
         // this.widget.style.display = (this.displaWidget)? 'block' : 'none';
@@ -24,17 +27,14 @@ var Widget = (function () {
     };
     Widget.prototype.addListeners = function () {
         var cross = document.querySelector("#reward_widget span.reward_cross");
-        // Add listener to cross click
         cross.addEventListener('click', this.togleWidget.bind(this));
-        // Add listener to pre_widget click
         this.preWidget.addEventListener("click", this.togleWidget.bind(this));
         document.querySelector('input.send-email-button').addEventListener("click", this.showPasswordInput.bind(this));
-        document.querySelector('input.send-password-button').addEventListener("click", this.confirmPassworForm.bind(this));
+        this.sendPasswordBtn.addEventListener("click", this.confirmPassworForm.bind(this));
     };
     Widget.prototype.animateLeft = function (obj, from, to) {
         var _this = this;
         if (from == to) {
-            // obj.style.visibility = 'hidden';
             return;
         }
         else {
@@ -44,13 +44,15 @@ var Widget = (function () {
                 _this.animateLeft(obj, (from < to) ? from + 5 : from - 5, to);
             }, 2);
         }
-        console.log("animate left");
     };
     Widget.prototype.hideShowEmailForm = function () {
         this.displayBodyContent = !this.displayBodyContent;
         this.displayEmailInput = !this.displayEmailInput;
         this.emailForm.style.display = (this.displayEmailInput) ? "block" : "none";
         this.bodyContent.style.display = (this.displayBodyContent) ? "block" : "none";
+        // disable saveMyPoint button 
+        this.savePointBtn.disabled = true;
+        this.savePointBtn.className += 'disable-btn';
     };
     Widget.prototype.showPasswordInput = function () {
         this.emailForm.style.display = "none";
