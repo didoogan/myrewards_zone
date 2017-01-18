@@ -29,7 +29,7 @@ var Widget = (function () {
         var cross = document.querySelector("#reward_widget span.reward_cross");
         cross.addEventListener('click', this.togleWidget.bind(this));
         this.preWidget.addEventListener("click", this.togleWidget.bind(this));
-        document.querySelector('input.send-email-button').addEventListener("click", this.showPasswordInput.bind(this));
+        // document.querySelector('input.send-email-button').addEventListener("click", this.showPasswordInput.bind(this));
         this.sendPasswordBtn.addEventListener("click", this.confirmPassworForm.bind(this));
     };
     Widget.prototype.animateLeft = function (obj, from, to) {
@@ -61,6 +61,36 @@ var Widget = (function () {
     Widget.prototype.confirmPassworForm = function () {
         this.formPassword.style.display = "none";
         this.thankDiv.style.display = "block";
+    };
+    Widget.prototype.signin = function () {
+        var email = document.getElementById("signin-input").value;
+        var response = this.post_request('http://127.0.0.1:8000/my_points/widget_login/', { email: email }, this.func_suc.bind(this), this.func_err.bind(this));
+    };
+    Widget.prototype.signup = function () {
+        var xhr = new XMLHttpRequest();
+    };
+    Widget.prototype.func_suc = function (obj) {
+        console.log(obj);
+        this.emailForm.style.display = 'none';
+        this.thankDiv.style.display = 'block';
+    };
+    Widget.prototype.func_err = function () {
+        console.log('dich');
+    };
+    Widget.prototype.post_request = function (url, data, callBack_suc, callBack_err) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                var info = JSON.parse(xhr.responseText);
+                callBack_suc(info);
+            }
+            else {
+                console.log('dich');
+            }
+        };
+        xhr.send(JSON.stringify(data));
     };
     return Widget;
 }());

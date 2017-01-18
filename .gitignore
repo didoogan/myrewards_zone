@@ -1,0 +1,12 @@
+#Ignore following
+
+*.pyc
+*.PYC
+local_settings.py
+grappelli
+.idea/*
+collectstatic/
+media/
+logs/
+env/
+node_modules/

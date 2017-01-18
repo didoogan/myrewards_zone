@@ -2,7 +2,9 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
-# from my_auth.managers import CustomUserManager
+from django_countries.fields import CountryField
+
+from .managers import CustomUserManager
 
 
 class MyUser(AbstractBaseUser, PermissionsMixin):
@@ -14,17 +16,16 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
     is_auth = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
+    telephone = models.CharField(_("Telephone"), max_length=15, blank=True, default='')
+    country = CountryField(blank=True, null=True)
 
-    # objects = CustomUserManager()
+    objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
     def __str__(self):
         return self.email
-
-    def is_authenticated(self):
-        return True
 
     def get_short_name(self):
         """
