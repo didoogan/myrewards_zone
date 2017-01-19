@@ -5,15 +5,19 @@ var Widget = (function () {
         this.displayEmailInput = false;
         this.displayEmailForm = false;
         this.displayBodyContent = true;
+        this.serverUrl = 'http://127.0.0.1:8000';
         this.widget = document.querySelector(widgetSelector);
         this.preWidget = document.querySelector(preWidgetSelector);
         this.bodyContent = document.querySelector('#reward_widget .myreward_body_part');
+        this.thankDiv = document.querySelector("#reward_widget .thank-you");
+        // forms
         this.emailForm = document.querySelector("#reward_widget .reward_form_email");
         this.formPassword = document.querySelector("#reward_widget .reward_form_password");
-        this.thankDiv = document.querySelector("#reward_widget .thank-you");
         // buttons
         this.savePointBtn = document.querySelector(".middle-part button");
         this.sendPasswordBtn = document.querySelector('input.send-password-button');
+        // p
+        this.preEmailP = document.querySelector('p.enter-email');
     }
     Widget.prototype.showWidget = function () {
         // this.widget.style.display = (this.displaWidget)? 'block' : 'none';
@@ -30,7 +34,7 @@ var Widget = (function () {
         cross.addEventListener('click', this.togleWidget.bind(this));
         this.preWidget.addEventListener("click", this.togleWidget.bind(this));
         // document.querySelector('input.send-email-button').addEventListener("click", this.showPasswordInput.bind(this));
-        this.sendPasswordBtn.addEventListener("click", this.confirmPassworForm.bind(this));
+        // this.sendPasswordBtn.addEventListener("click", this.confirmPassworForm.bind(this));
     };
     Widget.prototype.animateLeft = function (obj, from, to) {
         var _this = this;
@@ -64,18 +68,20 @@ var Widget = (function () {
     };
     Widget.prototype.signin = function () {
         var email = document.getElementById("signin-input").value;
-        var response = this.post_request('http://127.0.0.1:8000/my_points/widget_login/', { email: email }, this.func_suc.bind(this), this.func_err.bind(this));
+        var response = this.post_request(this.serverUrl + "/my_points/widget_login/", { email: email }, this.login_suc.bind(this), this.login_err.bind(this));
     };
-    Widget.prototype.signup = function () {
-        var xhr = new XMLHttpRequest();
+    Widget.prototype.showSignupForm = function () {
+        this.emailForm.style.display = 'none';
+        this.formPassword.style.display = 'block';
     };
-    Widget.prototype.func_suc = function (obj) {
+    Widget.prototype.login_suc = function (obj) {
         console.log(obj);
         this.emailForm.style.display = 'none';
         this.thankDiv.style.display = 'block';
     };
-    Widget.prototype.func_err = function () {
-        console.log('dich');
+    Widget.prototype.login_err = function () {
+        this.preEmailP.innerText = "Such email doesn't exist in database";
+        this.preEmailP.className = "pre_widget-error";
     };
     Widget.prototype.post_request = function (url, data, callBack_suc, callBack_err) {
         var xhr = new XMLHttpRequest();
@@ -87,7 +93,7 @@ var Widget = (function () {
                 callBack_suc(info);
             }
             else {
-                console.log('dich');
+                callBack_err();
             }
         };
         xhr.send(JSON.stringify(data));

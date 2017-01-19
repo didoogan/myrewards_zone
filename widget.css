@@ -61,25 +61,25 @@ div.reward_widget_prehead {
 	width: 280px;
 	height: 5px;
 	border-radius: 0px 0px 0px 8px;
-	border-bottom: 4px solid #5B64B9;
+	border-bottom: 4px solid #76449A;
 }
  #reward_widget div.reward_widget_head {
 	width: 290px;
 	height: 120px;
-	/*border-top: 4px solid #5B64B9;*/
-	/*border-right: 1px solid #5B64B9;*/
-	/*border-bottom: 4px solid #5B64B9;*/
+	/*border-top: 4px solid #76449A;*/
+	/*border-right: 1px solid #76449A;*/
+	/*border-bottom: 4px solid #76449A;*/
 	text-align: center;
 	/*border-radius: 0px 8px 8px 0px;*/
 	display: inline-block;
 	vertical-align: text-bottom;
-	background: #E9FBFB;
+	background: #E5F5FC;
 
 }
 #reward_widget div.reward_widget_head-midle {
 	height: 116px;
 	width: 10px;
-	border-top: 4px solid #5B64B9;
+	border-top: 4px solid #76449A;
 	border-bottom: 4px solid rgba(0, 0, 0, .0);
 	vertical-align: text-bottom;
 	display: inline-block;
@@ -89,13 +89,13 @@ div.reward_widget_prehead {
 	height: 116px;
 	width: 20px;
 	display: inline-block;
-	border-top: 4px solid #5B64B9;
-	border-right: 4px solid #5B64B9;
-	border-bottom: 4px solid #5B64B9;
+	border-top: 4px solid #76449A;
+	border-right: 4px solid #76449A;
+	border-bottom: 4px solid #76449A;
 	border-radius: 0px 8px 8px 0px;
 	vertical-align: text-bottom;
 	margin-left: -5px;
-	background: #E9FBFB;
+	background: #E5F5FC;
 }
 #reward_widget div.reward_widget_head_block {
 	display: inline-block;
@@ -106,13 +106,13 @@ div.reward_widget_head h2 {
 	/*margin-top: 20px;*/
 	padding-top: 10px;
 
-	color:#5B64B9; 
+	color:#76449A; 
 }
 div.reward_widget_head p {
-	color: #5B64B9;
+	color: #76449A;
 }
 div.reward_cirlce_row + div {
-	color: #5B64B9;
+	color: #76449A;
 }
 #reward_widget .reward_max_today {
 	font-size: 11px;
@@ -124,28 +124,27 @@ div.reward_cirlce_row + div {
 div.reward_widget_body {
 	width: 284px;
     height: 200px;
-    /* border-right: 4px solid #5B64B9; */
-    /* border-bottom: 4px solid #5B64B9; */
+    /* border-right: 4px solid #76449A; */
+    /* border-bottom: 4px solid #76449A; */
     border-radius: 0px 8px 8px 0px;
     display: inline-block;
-    background: #E9FBFB;
+    background: #E5F5FC;
     margin-right: -14px;
 }
 #reward_widget .reward_form_email {
 	font-size: 15px;
-    color: #5B64B9;
+    color: #76449A;
     padding-left: 22px;
     padding-top: 20px;
 }
 #reward_widget .reward_form_password {
 	display: none;
-	margin-left: 33px;
 }
 #reward_widget .thank-you {
 	display: none
 }
 #reward_widget p.thank-p {
-	color: #5B64B9;
+	color: #76449A;
     font-weight: 900;
     font-size: 17px;
     padding-top: 46px;
@@ -153,12 +152,12 @@ div.reward_widget_body {
 }
 div.reward_widget_body > div.middle-part {
 	height: 50px;
-	background: #5B64B9; 
+	background: #76449A; 
 }
 div.reward_widget_body_midle > div {
 	width: 19px;
     height: 50px;
-    background: #5B64B9;
+    background: #76449A;
     margin-left: -5px;
 }
 .disable-btn {
@@ -167,6 +166,7 @@ div.reward_widget_body_midle > div {
 }
 .disable-btn:hover {
 	cursor: default !important;
+	background: #F6F123 !important;
 }
 #reward_widget div.reward_widget_body p.you-have {
 	color: #F6F123;
@@ -192,12 +192,12 @@ div.reward_widget_body_midle > div {
 	margin-left: 25px;
 	text-transform: uppercase;
 	font-weight: 700;
-	color: #5B64B9;
+	color: #76449A;
 	font-size: 11px;
 	vertical-align: -13px;
-	border: 2 px solid #5B64B9;
+	border: 2 px solid #76449A;
 }
-input[type=text], select {
+input[type=text], input[type=password], input[type=email], select {
     width: 66%;
     padding: 6px 20px;
     margin: 8px 25px;
@@ -214,13 +214,13 @@ input[type=text], select {
 	font-size: 14px;
     margin-left: 27px;
     margin-top: 10px;
-	color: #5B64B9;
+	color: #76449A;
 }
 #reward_widget div.image_ph {
 	width: 75px;
 	height: 75px;
 	float: left;
-	background: #79E6E6;
+	background: #00A0E2;
 	margin: 10px;
 }
 #reward_widget div.image_ph:nth-child(1) {
@@ -230,13 +230,15 @@ input[type=text], select {
 	width: 55px;
 	height: 55px;
 	cursor: pointer;
-	background: #79E6E6;
-	border: 2px solid #5B64B9;
+	background: #00A0E2;
+	border: 2px solid #76449A;
 	border-radius: 6px;
 	margin-top: 20px;
+	color: white;
+	margin-left: 8px;
 }
 #reward_widget div.reward_widget_body button.learn-more:hover {
-	background: #799AE6; 
+	background: #76449A; 
 }
 #reward_widget div.reward_form_email {
 	display: none;
@@ -249,11 +251,20 @@ input[type=text], select {
     font-size: 14px;
     margin-left: 22px;
 }
+#reward_widget input.send-email-button:hover {
+	cursor: pointer;
+	background: #f6ba23;
+}
+#reward_widget #email-width {
+	width: 79%;
+}
 #reward_widget p.password-form-p {
 	font-size: 12px;
-    color: #5B64B9;
-    padding-left: 28px;
-	font-weight: 900;
+    color: #76449A;
+    padding-left: 87px;
+    padding-top: 3px;
+    font-weight: 900;
+    text-transform: uppercase;
 }
 #reward_widget .send-password-button, 
 #reward_widget .send-email-button {
@@ -261,29 +272,55 @@ input[type=text], select {
     background: #F6F123;
     padding: 7px 5px;
     border-radius: 5px;
-    margin-left: 24px;
+    margin-left: 31px;
     text-transform: uppercase;
     font-weight: 700;
-    color: #5B64B9;
+    color: #76449A;
     width: 66%;
     font-size: 11px;
-	margin-top: 10px;
+    margin-top: 5px;
+}
+#reward_widget .send-password-button:hover {
+	background: #f6ba23;
+	cursor: pointer;
 }
 #reward_widget input.form-password-input {
-	padding: 3px 20px;
+    margin: 2px 33px;
+    padding: 5px;
+    width: 78%;
+}
+#reward_widget label.signup-label {
+	color: #76449A;
+    font-size: 10px;
+    font-weight: 900;
 }
 #reward_widget .enter-email {
-	margin-left: 32px;
+	margin-left: 50px;
+	font-size: 12px;
+}
+#reward_widget .sign-up {
+    font-weight: 900;
+    cursor: pointer;
+    font-size: 12px;
+    vertical-align: -10px;
+	margin-left: 75px;
+	text-transform: uppercase;
+}
+#reward_widget div.middle-part {
+	background: #473179;
 }
 div.reward_widget_body_midle {
 	height: 200px;
 	width: 15px;
 	display: inline-block;
-	border-bottom: 4px solid #5B64B9;
-	/*border-right: 4px solid #5B64B9;*/
+	border-bottom: 4px solid #76449A;
+	/*border-right: 4px solid #76449A;*/
 	border-radius: 7px 4px;
 	margin-right: -4px;
 } 
+#reward_widget div.body-right-part {
+	background: #473179;
+}
  #reward_widget span.myreward_arrow {
 	font-size: 28px;
     font-weight: 900;
@@ -299,8 +336,8 @@ div.reward_widget_body_midle {
 div.reward_widget_body_right {
 	height: 200px;
 	width: 4px;
-	border-left: 4px solid #5B64B9;
-	border-top: 2px solid #5B64B9;
+	border-left: 4px solid #76449A;
+	border-top: 2px solid #76449A;
 	border-radius: 8px 0px 0px 0px;
 	display: inline-block;
 	margin-left: -5px;
@@ -309,13 +346,13 @@ div.reward_widget_body_right {
 div.reward_widget_footer {
 	width: 282px;
 	height: 5px;
-	border-top: 4px solid #5B64B9;
+	border-top: 4px solid #76449A;
 	border-radius: 8px 0px 0px 0px;
     margin-top: -4px;
 }
 
 div.reward_cirlce {
-	background: #79E6E6;
+	background: #00A0E2;
 	width: 30px;
 	height: 30px;
 	border-radius: 50%;
@@ -347,7 +384,7 @@ div.reward_cirlce_row {
 
 }
 #reward_widget .current  {
-	background: #5B64B9;
+	background: #473179;
 }
 #reward_widget .current p{
 	color: #F6F123; 
@@ -355,13 +392,13 @@ div.reward_cirlce_row {
 .reward_line {
 	width: 10px;
 	height: 2px;
-	background: #79E6E6;
+	background: #00A0E2;
 	float: left;
 	margin-top: 14px;
 }
 
 #reward_widget .reward_cross {
-  color: #5B64B9;
+  color: #76449A;
   font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: 24px;
   font-weight: bold;
@@ -398,13 +435,13 @@ display: block;
 }
 
 #reward_widget div span.rotate:nth-child(1) {
-	color: #79E6E6;
+	color: #00A0E2;
     font-size: 10px;
     padding-top: 3px;
 	font-weight: 900;
 }
 #reward_widget div span.rotate:nth-last-child(1) {
-	color: #5B64B9;
+	color: #76449A;
     font-weight: 700;
     text-transform: uppercase;
     font-size: 9px;
@@ -418,12 +455,12 @@ display: block;
 	position: fixed;
 	top: 200px;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	background: #E9FBFB;
+	background: #E5F5FC;
 	opacity: .5;
 	cursor: pointer;
 
 	/*background: yellow;*/
-	/*border: 1px solid #5B64B9;
+	/*border: 1px solid #76449A;
 	height: 100px;
 	width: 20px;*/
 }
@@ -433,25 +470,25 @@ display: block;
 #pre_widget .head {
 	width: 22px;
 	height: 3px;
-	border-bottom: 4px solid #5B64B9;
+	border-bottom: 4px solid #76449A;
 	border-radius: 0px 0px 0px 8px;
 }
 #pre_widget .body {
 	width: 22px;
     height: 130px;
-    border-right: 4px solid #5B64B9;
+    border-right: 4px solid #76449A;
     border-radius: 0px 10px 10px 0px;
     margin-top: -5px;
 }
 #pre_widget .footer {
 	width: 22px;
 	height: 3px;
-	border-top: 4px solid #5B64B9;
+	border-top: 4px solid #76449A;
 	border-radius: 8px 0px 0px 0px;
 	margin-top: -5px;
 }
 #pre_widget div.arrow {
-	color: #5B64B9;
+	color: #76449A;
     font-size: 14px;
     padding-top: 5px;
     padding-left: 5px;
@@ -477,11 +514,11 @@ display: block;
 	margin-right: -2px;
 }
 #pre_widget span.my {
-	color: #79E6E6;
+	color: #00A0E2;
 	display: block-inline;
 }
 #pre_widget span.rewards {
-	color: #5B64B9;
+	color: #76449A;
 	display: block-inline;
 }
 
@@ -489,7 +526,7 @@ display: block;
 	width: 16px;
 	height: 16px;
 	border-radius: 50%;
-	background: #5B64B9;
+	background: #76449A;
 	margin-top: 54px;
 	margin-left: 2px;
 }
@@ -502,6 +539,11 @@ display: block;
     line-height: -10px;
     padding-top: 1px;
     display: block;
+}
+.pre_widget-error {
+    color: #CE1212;
+	font-size: 13px !important;
+    padding-left: 27px;
 }
 
 
