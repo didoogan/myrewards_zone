@@ -14,8 +14,10 @@ class Widget {
     // buttons
     savePointBtn: HTMLInputElement;
     sendPasswordBtn: HTMLInputElement;
-    preEmailP: HTMLInputElement;
     serverUrl: string = 'http://127.0.0.1:8000';
+    // p
+    preEmailP: HTMLInputElement;
+    preFormPswP: HTMLInputElement;
 
     constructor(widgetSelector: string, preWidgetSelector: string) {
         this.widget = <HTMLInputElement>document.querySelector(widgetSelector);
@@ -30,6 +32,7 @@ class Widget {
         this.sendPasswordBtn= <HTMLInputElement>document.querySelector('input.send-password-button');
         // p
         this.preEmailP = <HTMLInputElement>document.querySelector('p.enter-email');
+        this.preFormPswP = <HTMLInputElement>document.querySelector("p.password-form-p");
 
         
 }
@@ -83,35 +86,68 @@ class Widget {
         this.formPassword.style.display = "none";
         this.thankDiv.style.display = "block";
     }
-    signin(): any {
-        let email = (<any> document.getElementById("signin-input")).value;
-        let response = this.post_request(`${this.serverUrl}/my_points/widget_login/`,
-             {email: email}, this.login_suc.bind(this), this.login_err.bind(this));
+    signin(): void {
+        let email = (<any> document.querySelector("#reward_widget #signin-input"));
+        console.log(`email = ${email}`);
+        if (email.validity.valid) {
+            this.post_request(
+                `${this.serverUrl}/my_points/widget_login/`,
+                {email: email.value}, this.login_suc.bind(this), this.login_err.bind(this)
+            );
+        }
     }
+    login_suc(obj: any): void {
+        this.emailForm.style.display = 'none';
+        this.thankDiv.style.display = 'block';
+    }
+    login_err(obj: any): void {
+        this.preEmailP.innerText = obj.error;
+        this.preEmailP.className = "pre_widget-error";
+    }
+
     showSignupForm(): any {
         this.emailForm.style.display = 'none';
         this.formPassword.style.display = 'block';
         
     }
-    login_suc(obj: any): void {
-        console.log(obj);
-        this.emailForm.style.display = 'none';
-        this.thankDiv.style.display = 'block';
+    signup(): void {
+        let email = (<any> document.getElementById("reward_signup-form-input"));
+        let password1 = (<any> document.getElementById("reward_signup-form-password1"));
+        let password2 = (<any> document.getElementById("reward_signup-form-password2"));
+        if (email.validity.valid && password1.validity.valid && password2.validity.valid) {
+            if (password1.value !== password2.value) {
+                this.preFormPswP.innerText = "Passwords sholuld be equal";
+                this.preFormPswP.className = "pre_widget-error signup-form-error";
+                return;
+            }
+            this.post_request(
+              `${this.serverUrl}/my_points/widget_signup/`,
+                {email: email.value, password: password1.value}, this.signup_suc.bind(this), this.signup_err.bind(this)  
+            );
+        }
     }
-    login_err(): void {
-        this.preEmailP.innerText = "Such email doesn't exist in database";
-        this.preEmailP.className = "pre_widget-error";
+    signup_suc(obj: any): void {
+        console.log("success");
+        this.formPassword.style.display = "none";
+        this.thankDiv.style.display = "block";
     }
+    signup_err(obj: any): void {
+        console.log("error");
+        this.preFormPswP.innerText = obj.error;
+        this.preFormPswP.className = "pre_widget-error signup-form-error";
+    }
+
     post_request(url: string, data: Object, callBack_suc, callBack_err): any {
         let xhr = new XMLHttpRequest();
         xhr.open("POST", url, true);
         xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
         xhr.onload = function() {
             if (xhr.status === 200) {
-                var info = JSON.parse(xhr.responseText);
-                callBack_suc(info);
+                let response = JSON.parse(xhr.responseText);
+                callBack_suc(response);
             } else {
-                callBack_err();
+                let response = JSON.parse(xhr.responseText);
+                callBack_err(response);
             }
         };
         xhr.send(JSON.stringify(data));

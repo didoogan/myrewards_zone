@@ -52,6 +52,12 @@
     /*line-height: normal;*/
 }
 /* end reset styles*/
+
+/*============ 	GENERAL ===========*/
+ /*#reward_widget input[type="email"]:invalid {
+	border: solid 3px red;
+}*/
+
 .reward_widget {
 	position: fixed;
 	top: 200px;
@@ -272,13 +278,17 @@ input[type=text], input[type=password], input[type=email], select {
     background: #F6F123;
     padding: 7px 5px;
     border-radius: 5px;
-    margin-left: 31px;
+    margin-left: 24px;
     text-transform: uppercase;
     font-weight: 700;
     color: #76449A;
     width: 66%;
     font-size: 11px;
     margin-top: 5px;
+}
+#reward_widget #send-pwd-btn {
+	margin-left: 31px;
+	width: 79%;
 }
 #reward_widget .send-password-button:hover {
 	background: #f6ba23;
@@ -328,11 +338,7 @@ div.reward_widget_body_midle {
     margin-top: -10px;
     display: block;
 }
-@-moz-document url-prefix() {
-    #reward_widget span.myreward_arrow  {
-        margin-top: -23px;
-    }
-}
+
 div.reward_widget_body_right {
 	height: 200px;
 	width: 4px;
@@ -545,5 +551,27 @@ display: block;
 	font-size: 13px !important;
     padding-left: 27px;
 }
+.signup-form-error {
+	/*color: #CE1212;
+	font-size: 13px !important;*/
+    padding-left: 36px;
+}
 
+/*========== FIREFOX HUCKS*/
+@-moz-document url-prefix() {
+    #reward_widget span.myreward_arrow  {
+        margin-top: -23px;
+    }
+}
+@-moz-document url-prefix() {
+    #reward_widget .send-password-button  {
+        padding: 3px 5px;
+		margin-top: 3px;
+    }
+}
+@-moz-document url-prefix() {
+    #reward_widget .sign-up  {
+        vertical-align: -6px;
+    }
+}
 

@@ -63,17 +63,17 @@
                     <span class="sign-up" onclick="widget.showSignupForm()">registration</span>
                 </div>
                 <div class="reward_form_password">
-                    <form name="reward_signup-form" onsubmit="return false">
+                    <form name="reward_signup-form" id="reward_signup-form" onsubmit="return false">
                         <p class="password-form-p">registration form</p>
-                        <input type="email" id="signup-input" name="email" 
+                        <input type="email" id="reward_signup-form-input" name="email" 
                             class="form-password-input" placeholder="email" required pattern="^\S{6,}$">
-                        <input type="password" id="signup-password1" name="password1"
+                        <input type="password" id="reward_signup-form-password1" name="password1"
                              class="form-password-input" placeholder="password" required pattern="^\S{8,}$"
                              title="Should contain at least 8 characters">
-                        <input type="password" id="signup-password2" name="signup-password2" 
+                        <input type="password" id="reward_signup-form-password2" name="signup-password2" 
                              required pattern="^\S{8,}$" title="Should contain at least 8 characters"
                              class="form-password-input" placeholder="confirm password" required >
-                        <input type="submit" id="email-width" class="send-password-button" value="send">
+                        <input type="submit" id="send-pwd-btn" class="send-password-button" value="send" onclick="widget.signup()">
                     </form>
                 </div>
                 <div class="thank-you">

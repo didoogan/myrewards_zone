@@ -18,6 +18,7 @@ var Widget = (function () {
         this.sendPasswordBtn = document.querySelector('input.send-password-button');
         // p
         this.preEmailP = document.querySelector('p.enter-email');
+        this.preFormPswP = document.querySelector("p.password-form-p");
     }
     Widget.prototype.showWidget = function () {
         // this.widget.style.display = (this.displaWidget)? 'block' : 'none';
@@ -67,21 +68,46 @@ var Widget = (function () {
         this.thankDiv.style.display = "block";
     };
     Widget.prototype.signin = function () {
-        var email = document.getElementById("signin-input").value;
-        var response = this.post_request(this.serverUrl + "/my_points/widget_login/", { email: email }, this.login_suc.bind(this), this.login_err.bind(this));
+        var email = document.querySelector("#reward_widget #signin-input");
+        console.log("email = " + email);
+        if (email.validity.valid) {
+            this.post_request(this.serverUrl + "/my_points/widget_login/", { email: email.value }, this.login_suc.bind(this), this.login_err.bind(this));
+        }
+    };
+    Widget.prototype.login_suc = function (obj) {
+        this.emailForm.style.display = 'none';
+        this.thankDiv.style.display = 'block';
+    };
+    Widget.prototype.login_err = function (obj) {
+        this.preEmailP.innerText = obj.error;
+        this.preEmailP.className = "pre_widget-error";
     };
     Widget.prototype.showSignupForm = function () {
         this.emailForm.style.display = 'none';
         this.formPassword.style.display = 'block';
     };
-    Widget.prototype.login_suc = function (obj) {
-        console.log(obj);
-        this.emailForm.style.display = 'none';
-        this.thankDiv.style.display = 'block';
+    Widget.prototype.signup = function () {
+        var email = document.getElementById("reward_signup-form-input");
+        var password1 = document.getElementById("reward_signup-form-password1");
+        var password2 = document.getElementById("reward_signup-form-password2");
+        if (email.validity.valid && password1.validity.valid && password2.validity.valid) {
+            if (password1.value !== password2.value) {
+                this.preFormPswP.innerText = "Passwords sholuld be equal";
+                this.preFormPswP.className = "pre_widget-error signup-form-error";
+                return;
+            }
+            this.post_request(this.serverUrl + "/my_points/widget_signup/", { email: email.value, password: password1.value }, this.signup_suc.bind(this), this.signup_err.bind(this));
+        }
     };
-    Widget.prototype.login_err = function () {
-        this.preEmailP.innerText = "Such email doesn't exist in database";
-        this.preEmailP.className = "pre_widget-error";
+    Widget.prototype.signup_suc = function (obj) {
+        console.log("success");
+        this.formPassword.style.display = "none";
+        this.thankDiv.style.display = "block";
+    };
+    Widget.prototype.signup_err = function (obj) {
+        console.log("error");
+        this.preFormPswP.innerText = obj.error;
+        this.preFormPswP.className = "pre_widget-error signup-form-error";
     };
     Widget.prototype.post_request = function (url, data, callBack_suc, callBack_err) {
         var xhr = new XMLHttpRequest();
@@ -89,11 +115,12 @@ var Widget = (function () {
         xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
         xhr.onload = function () {
             if (xhr.status === 200) {
-                var info = JSON.parse(xhr.responseText);
-                callBack_suc(info);
+                var response = JSON.parse(xhr.responseText);
+                callBack_suc(response);
             }
             else {
-                callBack_err();
+                var response = JSON.parse(xhr.responseText);
+                callBack_err(response);
             }
         };
         xhr.send(JSON.stringify(data));
@@ -102,5 +129,4 @@ var Widget = (function () {
 }());
 var widget = new Widget("#reward_widget", "#pre_widget");
 widget.showWidget();
-// widget.preWidget.addEventListener('click', widget.togleWidget.bind(widget));
 widget.addListeners();
