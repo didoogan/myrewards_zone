@@ -1,6 +1,6 @@
 class Widget {
     displaWidget: boolean = false;
-    displayPreWidget: boolean = true;
+    displayPreWidget: boolean = false;
     displayEmailInput: boolean = false;
     displayEmailForm: boolean = false;
     displayBodyContent: boolean = true;
@@ -37,33 +37,28 @@ class Widget {
         
 }
 
-    showWidget(): void {
-        // this.widget.style.display = (this.displaWidget)? 'block' : 'none';
-        this.preWidget.style.display = (this.displayPreWidget)? 'block' : 'none';
-        (this.displaWidget)? this.animateLeft(this.widget, -315, 0) : this.animateLeft(this.widget, 0, -315);
-
-    }
     togleWidget(): void {
         this.displaWidget = !this.displaWidget;
-        this.displayPreWidget = !this.displayPreWidget;
-        this.showWidget()
+        (this.displaWidget)? 
+        this.animateLeft(this.widget, -294, 0) : 
+        this.animateLeft(this.widget, 0, -294);
     }
     addListeners(): void {
         let cross = document.querySelector("#reward_widget span.reward_cross");
-        cross.addEventListener('click', this.togleWidget.bind(this));
-        this.preWidget.addEventListener("click", this.togleWidget.bind(this));
+        // cross.addEventListener('click', this.togleWidget.bind(this));
+        // this.preWidget.addEventListener("click", this.togleWidget.bind(this));
         // document.querySelector('input.send-email-button').addEventListener("click", this.showPasswordInput.bind(this));
         // this.sendPasswordBtn.addEventListener("click", this.confirmPassworForm.bind(this));
     }
     animateLeft (obj: any, from: number, to: number): void {
        if(from == to){         
            return;  
-           }
+       }
        else {
         var box = obj;
         box.style.marginLeft = `${from}px`;
         setTimeout(() => {
-            this.animateLeft(obj, (from < to)? from+5 : from-5, to);
+            this.animateLeft(obj, (from < to)? from+6 : from-6, to);
 
         }, 2) 
        }
@@ -88,7 +83,6 @@ class Widget {
     }
     signin(): void {
         let email = (<any> document.querySelector("#reward_widget #signin-input"));
-        console.log(`email = ${email}`);
         if (email.validity.valid) {
             this.post_request(
                 `${this.serverUrl}/my_points/widget_login/`,
@@ -127,12 +121,10 @@ class Widget {
         }
     }
     signup_suc(obj: any): void {
-        console.log("success");
         this.formPassword.style.display = "none";
         this.thankDiv.style.display = "block";
     }
     signup_err(obj: any): void {
-        console.log("error");
         this.preFormPswP.innerText = obj.error;
         this.preFormPswP.className = "pre_widget-error signup-form-error";
     }
@@ -157,7 +149,6 @@ class Widget {
  }
 
 let widget = new Widget("#reward_widget", "#pre_widget");
-widget.showWidget();
 widget.addListeners();
 
 

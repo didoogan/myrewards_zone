@@ -1,7 +1,7 @@
 var Widget = (function () {
     function Widget(widgetSelector, preWidgetSelector) {
         this.displaWidget = false;
-        this.displayPreWidget = true;
+        this.displayPreWidget = false;
         this.displayEmailInput = false;
         this.displayEmailForm = false;
         this.displayBodyContent = true;
@@ -20,20 +20,16 @@ var Widget = (function () {
         this.preEmailP = document.querySelector('p.enter-email');
         this.preFormPswP = document.querySelector("p.password-form-p");
     }
-    Widget.prototype.showWidget = function () {
-        // this.widget.style.display = (this.displaWidget)? 'block' : 'none';
-        this.preWidget.style.display = (this.displayPreWidget) ? 'block' : 'none';
-        (this.displaWidget) ? this.animateLeft(this.widget, -315, 0) : this.animateLeft(this.widget, 0, -315);
-    };
     Widget.prototype.togleWidget = function () {
         this.displaWidget = !this.displaWidget;
-        this.displayPreWidget = !this.displayPreWidget;
-        this.showWidget();
+        (this.displaWidget) ?
+            this.animateLeft(this.widget, -294, 0) :
+            this.animateLeft(this.widget, 0, -294);
     };
     Widget.prototype.addListeners = function () {
         var cross = document.querySelector("#reward_widget span.reward_cross");
-        cross.addEventListener('click', this.togleWidget.bind(this));
-        this.preWidget.addEventListener("click", this.togleWidget.bind(this));
+        // cross.addEventListener('click', this.togleWidget.bind(this));
+        // this.preWidget.addEventListener("click", this.togleWidget.bind(this));
         // document.querySelector('input.send-email-button').addEventListener("click", this.showPasswordInput.bind(this));
         // this.sendPasswordBtn.addEventListener("click", this.confirmPassworForm.bind(this));
     };
@@ -46,7 +42,7 @@ var Widget = (function () {
             var box = obj;
             box.style.marginLeft = from + "px";
             setTimeout(function () {
-                _this.animateLeft(obj, (from < to) ? from + 5 : from - 5, to);
+                _this.animateLeft(obj, (from < to) ? from + 6 : from - 6, to);
             }, 2);
         }
     };
@@ -69,7 +65,6 @@ var Widget = (function () {
     };
     Widget.prototype.signin = function () {
         var email = document.querySelector("#reward_widget #signin-input");
-        console.log("email = " + email);
         if (email.validity.valid) {
             this.post_request(this.serverUrl + "/my_points/widget_login/", { email: email.value }, this.login_suc.bind(this), this.login_err.bind(this));
         }
@@ -100,12 +95,10 @@ var Widget = (function () {
         }
     };
     Widget.prototype.signup_suc = function (obj) {
-        console.log("success");
         this.formPassword.style.display = "none";
         this.thankDiv.style.display = "block";
     };
     Widget.prototype.signup_err = function (obj) {
-        console.log("error");
         this.preFormPswP.innerText = obj.error;
         this.preFormPswP.className = "pre_widget-error signup-form-error";
     };
@@ -128,5 +121,4 @@ var Widget = (function () {
     return Widget;
 }());
 var widget = new Widget("#reward_widget", "#pre_widget");
-widget.showWidget();
 widget.addListeners();
