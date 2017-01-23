@@ -23,8 +23,8 @@ var Widget = (function () {
     Widget.prototype.togleWidget = function () {
         this.displaWidget = !this.displaWidget;
         (this.displaWidget) ?
-            this.animateLeft(this.widget, -294, 0) :
-            this.animateLeft(this.widget, 0, -294);
+            this.animateLeft(this.widget, -296, 0) :
+            this.animateLeft(this.widget, 0, -296);
     };
     Widget.prototype.addListeners = function () {
         var cross = document.querySelector("#reward_widget span.reward_cross");
@@ -42,8 +42,8 @@ var Widget = (function () {
             var box = obj;
             box.style.marginLeft = from + "px";
             setTimeout(function () {
-                _this.animateLeft(obj, (from < to) ? from + 6 : from - 6, to);
-            }, 2);
+                _this.animateLeft(obj, (from < to) ? from + 8 : from - 8, to);
+            }, 1);
         }
     };
     Widget.prototype.hideShowEmailForm = function () {

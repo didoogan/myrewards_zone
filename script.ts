@@ -40,8 +40,8 @@ class Widget {
     togleWidget(): void {
         this.displaWidget = !this.displaWidget;
         (this.displaWidget)? 
-        this.animateLeft(this.widget, -294, 0) : 
-        this.animateLeft(this.widget, 0, -294);
+        this.animateLeft(this.widget, -296, 0) : 
+        this.animateLeft(this.widget, 0, -296);
     }
     addListeners(): void {
         let cross = document.querySelector("#reward_widget span.reward_cross");
@@ -58,9 +58,9 @@ class Widget {
         var box = obj;
         box.style.marginLeft = `${from}px`;
         setTimeout(() => {
-            this.animateLeft(obj, (from < to)? from+6 : from-6, to);
+            this.animateLeft(obj, (from < to)? from+8 : from-8, to);
 
-        }, 2) 
+        }, 1) 
        }
     }
     hideShowEmailForm ():void {

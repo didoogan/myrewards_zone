@@ -9,7 +9,7 @@
 }
 
 #reward_widget div, #reward_widget span,
-/*#reward_widget h1, #reward_widget h2, #reward_widget h3, #reward_widget h4, #reward_widget h5,*/
+#reward_widget h1, #reward_widget h2, #reward_widget h3, #reward_widget h4, #reward_widget h5,
 #reward_widget h6, #reward_widget p, #reward_widget a, #reward_widget abbr, #reward_widget acronym,
 #reward_widget address, #reward_widget big, #reward_widget cite, #reward_widget code,
 #reward_widget del, #reward_widget dfn, #reward_widget em, #reward_widget img, #reward_widget ins,
@@ -49,8 +49,52 @@
 #reward_widget h4,
 #reward_widget h5,
 #reward_widget h6 {
-    /*line-height: normal;*/
+    line-height: normal;
 }
+#reward_widget_m div, #reward_widget_m span,
+#reward_widget_m h1, #reward_widget_m h2, #reward_widget_m h3, #reward_widget_m h4, #reward_widget_m h5,
+#reward_widget_m h6, #reward_widget_m p, #reward_widget_m a, #reward_widget_m abbr, #reward_widget_m acronym,
+#reward_widget_m address, #reward_widget_m big, #reward_widget_m cite, #reward_widget_m code,
+#reward_widget_m del, #reward_widget_m dfn, #reward_widget_m em, #reward_widget_m img, #reward_widget_m ins,
+#reward_widget_m kbd, #reward_widget_m q, #reward_widget_m s, #reward_widget_m samp,
+#reward_widget_m small, #reward_widget_m strike, #reward_widget_m strong, #reward_widget_m sub,
+#reward_widget_m sup, #reward_widget_m tt, #reward_widget_m var,
+#reward_widget_m u, #reward_widget_m i, #reward_widget_m center,
+#reward_widget_m dl, #reward_widget_m dt, #reward_widget_m dd, #reward_widget_m ol, #reward_widget_m ul,
+#reward_widget_m li, #reward_widget_m fieldset, #reward_widget_m form, #reward_widget_m label, #reward_widget_m legend,
+#reward_widget_m table, #reward_widget_m caption, #reward_widget_m tbody, #reward_widget_m tfoot,
+#reward_widget_m thead, #reward_widget_m tr, #reward_widget_m th, #reward_widget_m td,
+#reward_widget_m article, #reward_widget_m aside, #reward_widget_m canvas, #reward_widget_m details, #reward_widget_m embed,
+#reward_widget_m figure, #reward_widget_m figcaption, #reward_widget_m footer, #reward_widget_m header,
+#reward_widget_m menu, #reward_widget_m nav, #reward_widget_m output, #reward_widget_m ruby, #reward_widget_m section, #reward_widget_m summary,
+#reward_widget_m time, #reward_widget_m mark, #reward_widget_m audio, #reward_widget_m video {
+  font-size: 100%;
+  font: inherit;
+  vertical-align: top;
+}
+/* HTML5 display-role reset for older browsers */
+#reward_widget_m article, #reward_widget_m aside, #reward_widget_m details, #reward_widget_m figcaption, #reward_widget_m figure,
+#reward_widget_m footer, #reward_widget_m header, #reward_widget_m menu, #reward_widget_m nav, #reward_widget_m section #reward_widget_m  {
+  display: block;
+}
+#reward_widget_m ol,  #reward_widget_m ul {
+  list-style: none;
+}
+
+#reward_widget_m table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+#reward_widget_m h1,
+#reward_widget_m h2,
+#reward_widget_m h3,
+#reward_widget_m h4,
+#reward_widget_m h5,
+#reward_widget_m h6 {
+    line-height: normal;
+}
+
 /* end reset styles*/
 
 /*============ 	GENERAL ===========*/
@@ -62,7 +106,7 @@
 	position: fixed;
 	top: 200px;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	margin-left: -288px;
+	margin-left: -289px;
 }
 div.reward_widget_prehead {
 	width: 280px;
@@ -411,7 +455,8 @@ div.reward_cirlce_row {
 	margin-top: 14px;
 }
 
-#reward_widget .reward_cross {
+#reward_widget .reward_cross, 
+#reward_widget_m .reward_cross {
   color: #76449A;
   font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: 24px;
@@ -585,4 +630,84 @@ display: block;
         margin-top: 29px;
     }
 }
+
+/*=========== Mobile Widget ============*/
+
+#reward_widget_m {
+	position: fixed;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    bottom: 0%;
+	left: 50%;
+    transform: translateX(-50%);
+	display: none;
+}
+
+#reward_widget_m .reward_m_header {
+	width: 125px;
+	height: 150px;
+	display: inline-block;
+	border-left: 4px solid #76449A;
+	border-top: 4px solid #76449A;
+	border-radius: 8px 8px 0px 0px;
+	background: #E5F5FC;
+}
+/*#reward_widget_m .reward_m_header::after {
+    content: "";
+    position: inherit;
+    width: 0px;
+    border-right: 4px solid #76449A;
+    height: 12px;
+    border-radius: 0px 8px 0px 0px;
+    display: block;
+    margin-left: 121px;
+    margin-top: -26px;
+}
+#reward_widget_m .reward_m_header::before {
+	content: "";
+    position: inherit;
+    width: 0px;
+    border-left: 4px solid #76449A;
+    height: 19px;
+    border-radius: 0px 0px 0px 5px;
+    display: block;
+    margin-left: 121px;
+    margin-top: 6px;
+}*/
+#reward_widget_m .reward_m-cross {
+    margin-left: 5px;
+}
+#reward_widget_m .reward_m-my {
+	display: inline-block;
+    margin-top: 8px;
+    font-size: 10px;
+    color: #00A0E2;
+    font-weight: 900;
+}
+#reward_widget_m .reward_m-reward {
+	display: inline-block;
+    margin-top: 8px;
+    font-size: 10px;
+    color: #76449A;
+    font-weight: 900;
+	text-transform: uppercase;
+}
+#reward_widget_m .reward_m_header-right {
+	width: 165px;
+	height: 125px;
+	display: inline-block;
+	border-top: 4px solid #76449A;
+	border-right: 4px solid #76449A;
+	border-radius: 0px 8px 0px 0px;
+	background: #E5F5FC;
+	vertical-align: bottom;
+}
+#reward_widget_m .reward_m_footer {
+	width: 290px;
+	height: 200px;
+	background: #E5F5FC;
+	border-right: 4px solid #76449A;
+	border-left: 4px solid #76449A;
+	margin-top: -5px;
+}
+
 
